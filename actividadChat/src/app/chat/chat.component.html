@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header">
+      Usuario : {{usuario}}
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"
+               >Mensaje</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+            [(ngModel)]="mensaje.Mensaje"></textarea>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3"
+            (click)="enviarMensaje()">Guardar</button>
+        </div>
+    </div>
+</div>

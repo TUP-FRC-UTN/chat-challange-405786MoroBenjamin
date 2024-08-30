@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-header">
+      Sala de Chat
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Conversacion</h5>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Mensajes</label>
+        <div class="form-control bg-light" id="exampleFormControlTextarea1" rows="3" disabled
+          [ngStyle]="{'min-height ': '600px'}">
+        @for(mensaje of mensajes; track $index){
+          <p [ngStyle]="{ 'text-align': mensaje.Usuario == 'Usuario 1' ? 'left' : 'right' }">
+            {{mensaje.Usuario}}: {{mensaje.Mensaje}}</p>
+        }
+        </div>
+      </div>
+    </div>
+    <div ngClass="d-flex" [ngStyle]="{'width': '100%'}">
+        <app-chat ngClass="m-1" [ngStyle]="{'width': '50%'}" 
+          [usuario]="'Usuario 1'"
+          (mensajeEmitter)="recibirMensaje($event)"/>
+        <app-chat ngClass="m-1" [ngStyle]="{'width': '50%'}"
+          [usuario]="'Usuario 2'"
+          (mensajeEmitter)="recibirMensaje($event)"/>
+    </div>
+</div>
